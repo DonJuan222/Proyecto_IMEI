@@ -1,0 +1,10 @@
+{% extends 'gestion_imei/base_generic.html' %}
+{% block content %}
+<h1>{% if edit %}Editar Celular{% else %}Registrar Celular{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if edit %}Actualizar{% else %}Registrar{% endif %}</button>
+    <a href="{% url 'cell_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

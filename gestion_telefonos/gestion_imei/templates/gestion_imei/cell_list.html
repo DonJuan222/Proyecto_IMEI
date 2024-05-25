@@ -1,0 +1,33 @@
+{% extends 'gestion_imei/base_generic.html' %}
+{% block content %}
+<h1>Lista de Celulares</h1>
+<a href="{% url 'cell_create' %}" class="btn btn-primary">Registrar Celular</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>IMEI</th>
+            <th>Vendido</th>
+            <th>Comprador</th>
+            <th>Robado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cell in cells %}
+        <tr>
+            <td>{{ cell.marca }}</td>
+            <td>{{ cell.modelo }}</td>
+            <td>{{ cell.imei }}</td>
+            <td>{{ cell.vendido }}</td>
+            <td>{{ cell.comprador }}</td>
+            <td>{{ cell.robado }}</td>
+            <td>
+                <a href="{% url 'cell_edit' cell.pk %}" class="btn btn-warning">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
