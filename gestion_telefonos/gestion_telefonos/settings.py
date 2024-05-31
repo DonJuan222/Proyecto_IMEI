@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'gestion_telefonos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'imei_db',
+        'NAME': 'db_proyecto',
         'USER': 'root',
         'PASSWORD': '150346Dkt810',
         'HOST': 'localhost',
@@ -126,3 +126,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'cell_list'
+LOGOUT_REDIRECT_URL = 'login'

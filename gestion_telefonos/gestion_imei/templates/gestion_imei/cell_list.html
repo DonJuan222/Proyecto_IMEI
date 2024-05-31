@@ -1,7 +1,9 @@
 {% extends 'gestion_imei/base_generic.html' %}
 {% block content %}
 <h1>Lista de Celulares</h1>
-<a href="{% url 'cell_create' %}" class="btn btn-primary">Registrar Celular</a>
+{% if user.is_superuser %}
+    <a href="{% url 'cell_create' %}" class="btn btn-primary">Registrar Celular</a>
+{% endif %}
 <table class="table">
     <thead>
         <tr>
@@ -24,7 +26,9 @@
             <td>{{ cell.comprador }}</td>
             <td>{{ cell.robado }}</td>
             <td>
-                <a href="{% url 'cell_edit' cell.pk %}" class="btn btn-warning">Editar</a>
+                {% if user.is_superuser %}
+                    <a href="{% url 'cell_edit' cell.pk %}" class="btn btn-warning">Editar</a>
+                {% endif %}
             </td>
         </tr>
         {% endfor %}
